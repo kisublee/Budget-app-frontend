@@ -17,6 +17,8 @@ import BudgetIcon from "../assets/home_1_item.jpg";
 import ArrowUpIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownIcon from "@mui/icons-material/ArrowDownward";
 
+import DoughnutChart from "../charts/DoughnutChart";
+
 export default function Home() {
   const [transactions, setTransactions] = useState([]);
 
@@ -281,10 +283,8 @@ export default function Home() {
           >
             Your latest insights
           </Typography>
-          <Grid item xs={12} md={12} sx={{ mt: 3, borderRadius: 10 }}>
-            <Item sx={{ padding: 17, bgcolor: "#F2F9FE", boxShadow: 2 }}>
-              for insights
-            </Item>
+          <Grid item xs={12} md={12} sx={{ mt: 5 }}>
+            <DoughnutChart transactions={transactions} />
           </Grid>
         </Box>
       </Container>

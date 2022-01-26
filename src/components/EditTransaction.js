@@ -1,9 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Grid, TextField } from "@mui/material";
+import { Box } from "@mui/system";
 const EditTransaction = () => {
   const { id } = useParams;
-
   const URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
@@ -22,7 +23,27 @@ const EditTransaction = () => {
       .then((res) => setTransaction(res.data));
   }, []);
 
-  return <h1>{transaction.source}</h1>;
+  return (
+    <Grid item xs={6} md={6} sx={{ mt: 30 }}>
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "15ch", bgcolor: "skyBlue" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="amount"
+          label="amount"
+          variant="outlined"
+          // onChange={handleChange}
+          placeholder="$"
+          type="number"
+        />
+      </Box>
+    </Grid>
+  );
 };
 
 export default EditTransaction;
