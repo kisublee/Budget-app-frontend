@@ -154,7 +154,7 @@ export default function Home() {
                           textDecoration: "none",
                           color: "#4876C7",
                         }}
-                        to="/overview"
+                        to="/list"
                       >
                         See all transactions
                       </Link>
