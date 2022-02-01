@@ -17,11 +17,25 @@ const EditTransaction = () => {
   });
   console.log(id);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`${URL}/transactions/${id}`)
+  //     .then((res) => setTransaction(res.data));
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get(`${URL}/transactions/${id}`)
-      .then((res) => setTransaction(res.data));
+    const fetchData = async () => {
+      console.log("Fetching API for One Single Image!");
+      const res = await axios.get(`${URL}/transactions/${id}/`);
+
+      setTransaction(res.data);
+      console.log(res.data);
+    };
+
+    fetchData();
   }, []);
+
+  console.log(transaction);
 
   return (
     <Grid item xs={6} md={6} sx={{ mt: 30 }}>
