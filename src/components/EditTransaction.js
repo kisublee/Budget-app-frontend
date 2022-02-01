@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Grid, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 const EditTransaction = () => {
-  const { id } = useParams;
+  const { id } = useParams();
   const URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
