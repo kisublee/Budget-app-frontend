@@ -248,6 +248,12 @@ export default function TransactionsList() {
     fetchData();
   }, []);
 
+  let total = 0;
+
+  const calTotal = transactions.map((each) => {
+    return (total += Number(each.amount));
+  });
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -390,6 +396,9 @@ export default function TransactionsList() {
       ) : (
         <Paper sx={{ width: "100%", mb: 2 }}>
           <EnhancedTableToolbar numSelected={selected.length} />
+          <Typography variant="h6" sx={{ ml: 2 }}>
+            Total amount of spending: ${total}
+          </Typography>
           <TableContainer>
             <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
               <EnhancedTableHead
@@ -400,6 +409,7 @@ export default function TransactionsList() {
                 onRequestSort={handleRequestSort}
                 rowCount={transactions.length}
               />
+
               <TableBody>
                 {/* if you don't need to support IE11, you can replace the `stableSort` call with:
                  transactions.slice().sort(getComparator(order, orderBy)) */}
