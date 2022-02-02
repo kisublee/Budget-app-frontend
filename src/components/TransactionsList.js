@@ -396,9 +396,28 @@ export default function TransactionsList() {
       ) : (
         <Paper sx={{ width: "100%", mb: 2 }}>
           <EnhancedTableToolbar numSelected={selected.length} />
-          <Typography variant="h6" sx={{ ml: 2 }}>
-            Total amount of spending: ${total}
-          </Typography>
+          {total > 500 ? (
+            <div style={{ display: "flex" }}>
+              <Typography variant="h6" sx={{ ml: 2 }}>
+                Total amount of spending:
+              </Typography>
+              <Typography variant="h6" sx={{ ml: 2, mt: 0.2, color: "green" }}>
+                ${total}
+              </Typography>
+            </div>
+          ) : (
+            <div style={{ display: "flex" }}>
+              <Typography variant="h6" sx={{ ml: 2 }}>
+                Total amount of spending:
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{ ml: 2, mt: 0.2, color: "darkBlue" }}
+              >
+                ${total}
+              </Typography>
+            </div>
+          )}
           <TableContainer>
             <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
               <EnhancedTableHead
