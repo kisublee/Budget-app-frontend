@@ -25,7 +25,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-
+import { makeStyles } from "@mui/styles";
+import { CallMissedSharp } from "@mui/icons-material";
 function createData(amount, date, source, category) {
   return {
     source,
@@ -239,6 +240,20 @@ export default function TransactionsList() {
   const [transactions, setTransactions] = useState([]);
   const URL = process.env.REACT_APP_API_URL;
 
+  const useStyle = makeStyles(() => ({
+    great: {
+      color: "green",
+    },
+    good: {
+      color: "darkBlue",
+    },
+    warning: {
+      color: "red",
+    },
+  }));
+
+  const classes = useStyle();
+
   useEffect(() => {
     const fetchData = async () => {
       console.log("we are hitting the useEffect for Home!");
@@ -253,6 +268,26 @@ export default function TransactionsList() {
   const calTotal = transactions.map((each) => {
     return (total += Number(each.amount));
   });
+
+  let totalForSaving = 0;
+
+  const calTotalForSaving = transactions
+    .filter((each) => each.category === "saving")
+    .map((each) => {
+      return (totalForSaving += Number(each.amount));
+    });
+
+  const changeColor = (total) => {
+    if (total > 1000) {
+      return classes.great;
+    }
+    if (total > 0) {
+      return classes.good;
+    }
+    if (total < 0) {
+      return classes.warning;
+    }
+  };
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -396,28 +431,24 @@ export default function TransactionsList() {
       ) : (
         <Paper sx={{ width: "100%", mb: 2 }}>
           <EnhancedTableToolbar numSelected={selected.length} />
-          {total > 500 ? (
-            <div style={{ display: "flex" }}>
-              <Typography variant="h6" sx={{ ml: 2 }}>
-                Total amount of spending:
-              </Typography>
-              <Typography variant="h6" sx={{ ml: 2, mt: 0.2, color: "green" }}>
-                ${total}
-              </Typography>
-            </div>
-          ) : (
-            <div style={{ display: "flex" }}>
-              <Typography variant="h6" sx={{ ml: 2 }}>
-                Total amount of spending:
-              </Typography>
-              <Typography
-                variant="h6"
-                sx={{ ml: 2, mt: 0.2, color: "darkBlue" }}
-              >
-                ${total}
-              </Typography>
-            </div>
-          )}
+          <div style={{ display: "flex" }}>
+            <Typography variant="h6" sx={{ ml: 2 }}>
+              Total amount of spending:
+            </Typography>
+            <Typography variant="h6" sx={{ ml: 2, mt: 0.2 }}>
+              ${total}
+            </Typography>
+            <Typography variant="h6" sx={{ ml: 2 }}>
+              Total amount of saving:
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ ml: 2, mt: 0.2 }}
+              className={changeColor(total)}
+            >
+              ${totalForSaving}
+            </Typography>
+          </div>
           <TableContainer>
             <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
               <EnhancedTableHead
