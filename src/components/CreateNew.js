@@ -128,7 +128,7 @@ const CreateNew = () => {
           </Box>
         </Grid>
         <CssBaseline />
-        <FormControl sx={{ m: 2 }} required onSubmit={handleSubmit}>
+        <FormControl sx={{ m: 2 }} required>
           <Grid item xs={6} md={6}>
             <InputLabel id="category">category</InputLabel>
             <NativeSelect
@@ -225,6 +225,7 @@ const CreateNew = () => {
               />
             </Box>
           </Grid>
+          <Button onClick={handleSubmit}>Submit</Button>
         </FormControl>
       </Grid>
     </Box>

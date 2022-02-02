@@ -44,13 +44,22 @@ const DetailTransaction = () => {
   return (
     <Container>
       <Box sx={{ fontWeight: "bold" }}>
-        <Typography variant="h5" sx={{ mt: 10 }}>
+        <Typography variant="h5" sx={{ mt: 12, textAlign: "center" }}>
           Let's take a close look
         </Typography>
       </Box>
-      <Grid container spacing={0} sx={{ mt: "10%", height: 600 }}>
-        <Grid item xs={12}>
-          <Card sx={{ width: "100%", height: 550 }}>
+      <Grid
+        container
+        spacing={0}
+        sx={{
+          mt: 5,
+          height: 650,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Grid item xs={12} md={5}>
+          <Card sx={{ width: "100%", height: "auto" }}>
             <CardMedia
               component="img"
               alt="video"
@@ -58,6 +67,10 @@ const DetailTransaction = () => {
               image={Money}
             />
             <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {/* {textFormatter(transaction)} */}
+                Category: {transaction.category}
+              </Typography>
               <Typography gutterBottom variant="h5" component="div">
                 {/* {textFormatter(transaction)} */}
                 Source: {transaction.source}

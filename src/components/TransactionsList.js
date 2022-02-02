@@ -432,6 +432,16 @@ export default function TransactionsList() {
                         <TableCell align="center">{row.amount}</TableCell>
                         <TableCell align="center">{row.date}</TableCell>
                         <TableCell align="center">{row.category}</TableCell>
+                        <TableCell align="center">
+                          <Link
+                            to={`/${row._id}`}
+                            style={{
+                              textDecoration: "none",
+                            }}
+                          >
+                            <Button>view</Button>
+                          </Link>
+                        </TableCell>
                       </TableRow>
                     );
                   })}
