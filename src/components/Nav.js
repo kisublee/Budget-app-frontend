@@ -93,7 +93,10 @@ export default function Nav() {
             sx={{ mr: 2 }}
           ></IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Bi-Budget
+            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+              {" "}
+              Bi-Budget{" "}
+            </Link>
           </Typography>
           {isMobile ? (
             <div>

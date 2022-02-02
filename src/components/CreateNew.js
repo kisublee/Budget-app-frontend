@@ -14,6 +14,8 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import NativeSelect from "@mui/material/NativeSelect";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 // Axios and Hooks
 import axios from "axios";
@@ -43,6 +45,8 @@ const CreateNew = () => {
 
   //Call useNavigate function
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   //Category
   const categories = [
@@ -95,138 +99,142 @@ const CreateNew = () => {
 
   return (
     <Box sx={{ mt: 5 }}>
-      <Grid container spacing={2}>
-        {/* <Grid item xs={12} md={12}> */}
-        <Box
-          sx={{
-            bgcolor: "#17006A",
-            position: "absolute",
-            zIndex: 1,
-            left: 0,
-            right: 0,
-            mx: 2,
-            width: "300",
-            mt: 25,
-            p: 2,
-          }}
-        >
+      <Grid
+        container
+        spacing={2}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
+        <Grid item xs={12} md={4}>
           <Typography
             variant="h4"
             sx={{
-              color: "white",
+              color: "darkBlue",
               textAlign: "center",
               fontFamily: "impact",
+              mt: 5,
             }}
           >
             Add a new transaction
           </Typography>
-        </Box>
-        {/* </Grid> */}
-        <Grid item xs={12} md={12}>
-          <Box>
-            <img src={bgImage} style={{ width: "100%", zIndex: -1 }} />
-          </Box>
+
+          <Grid item xs={12} md={12}>
+            <Box>
+              <img src={bgImage} style={{ width: "100%", zIndex: -1 }} />
+            </Box>
+          </Grid>
+          <CssBaseline />
+          <FormControl sx={{ m: 2 }} required>
+            <Grid item xs={6} md={6}>
+              <InputLabel id="category">category</InputLabel>
+              <NativeSelect
+                id="category"
+                value={transaction.category}
+                onChange={handleChange}
+                sx={{ minWidth: "15ch", bgcolor: "skyBlue", m: 1 }}
+              >
+                {categories.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </NativeSelect>
+            </Grid>
+            <Grid item xs={6} md={6}>
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": {
+                    m: 1,
+                    width: "15ch",
+                    bgcolor: "skyBlue",
+                  },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="date"
+                  label="MM-DD-YYYY"
+                  variant="outlined"
+                  onChange={handleChange}
+                  placeholder="Enter a date"
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={6} md={6}>
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": {
+                    m: 1,
+                    width: "15ch",
+                    bgcolor: "skyBlue",
+                  },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="amount"
+                  label="amount"
+                  variant="outlined"
+                  onChange={handleChange}
+                  placeholder="$"
+                  type="number"
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={6} md={6}>
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": {
+                    m: 1,
+                    width: "15ch",
+                    bgcolor: "skyBlue",
+                  },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="source"
+                  label="source"
+                  variant="outlined"
+                  onChange={handleChange}
+                  placeholder="source"
+                  type="string"
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": {
+                    m: 1,
+                    width: "25ch",
+                    bgcolor: "skyBlue",
+                  },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="description"
+                  label="description"
+                  variant="outlined"
+                  onChange={handleChange}
+                  placeholder="description"
+                  type="string"
+                  multiline
+                  rows={8}
+                />
+              </Box>
+            </Grid>
+            <Button onClick={handleSubmit}>Submit</Button>
+          </FormControl>
         </Grid>
-        <CssBaseline />
-        <FormControl sx={{ m: 2 }} required>
-          <Grid item xs={6} md={6}>
-            <InputLabel id="category">category</InputLabel>
-            <NativeSelect
-              id="category"
-              value={transaction.category}
-              onChange={handleChange}
-              sx={{ minWidth: "15ch", bgcolor: "skyBlue", m: 1 }}
-            >
-              {categories.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </NativeSelect>
-          </Grid>
-          <Grid item xs={6} md={6}>
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "15ch", bgcolor: "skyBlue" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="date"
-                label="MM-DD-YYYY"
-                variant="outlined"
-                onChange={handleChange}
-                placeholder="Enter a date"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} md={6}>
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "15ch", bgcolor: "skyBlue" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="amount"
-                label="amount"
-                variant="outlined"
-                onChange={handleChange}
-                placeholder="$"
-                type="number"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={6} md={6}>
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "15ch", bgcolor: "skyBlue" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="source"
-                label="source"
-                variant="outlined"
-                onChange={handleChange}
-                placeholder="source"
-                type="string"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": {
-                  m: 1,
-                  width: "25ch",
-                  bgcolor: "skyBlue",
-                },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField
-                id="description"
-                label="description"
-                variant="outlined"
-                onChange={handleChange}
-                placeholder="description"
-                type="string"
-                multiline
-                rows={8}
-              />
-            </Box>
-          </Grid>
-          <Button onClick={handleSubmit}>Submit</Button>
-        </FormControl>
       </Grid>
     </Box>
   );

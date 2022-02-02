@@ -90,7 +90,7 @@ const DetailTransaction = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Link to={`/${id}/edit`}>
+              <Link to={`/${id}/edit`} style={{ textDecoration: "none" }}>
                 <Button size="small">Edit</Button>
               </Link>
               <Button size="small" onClick={clickHandler}>
