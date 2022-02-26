@@ -27,15 +27,6 @@ const DetailTransaction = () => {
     fetchData();
   }, []);
 
-  //   const textFormatter = (str) => {
-  //     if (str) {
-  //       return (
-  //         str.source.split("").slice(0, 1).toString().toUpperCase() +
-  //         str.source.split("").slice(1).join("").toLowerCase()
-  //       );
-  //     }
-  //   };
-
   console.log(id);
   const clickHandler = () => {
     navigate(`/list`);

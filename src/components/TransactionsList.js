@@ -26,6 +26,8 @@ import { useTheme } from "@mui/material/styles";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import Notification from "./Notification";
+import DeleteDialog from "./Dialog";
 import { CallMissedSharp } from "@mui/icons-material";
 function createData(amount, date, source, category) {
   return {
@@ -167,6 +169,11 @@ const EnhancedTableToolbar = (props) => {
   const { numSelected } = props;
   const URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpenToggler = () => {
+    setOpen(!open);
+  };
 
   const handleDelete = () => {
     axios.delete(`${URL}/transactions/${getId}`).then(() => {
@@ -209,8 +216,9 @@ const EnhancedTableToolbar = (props) => {
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton onClick={() => handleDelete()}>
+          <IconButton onClick={() => handleClickOpenToggler()}>
             <DeleteIcon />
+            <DeleteDialog open={open} handleDelete={handleDelete} />
           </IconButton>
         </Tooltip>
       ) : (
