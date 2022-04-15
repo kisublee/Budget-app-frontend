@@ -6,6 +6,8 @@ import List from "./pages/List";
 import New from "./pages/New";
 import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
+import Goal from "./pages/Goal";
+import Account from "./pages/Account";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/list" element={<List />} />
         <Route path="/create" element={<New />} />
+        <Route path="/goal" element={<Goal />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/:id" element={<Detail />} />
         <Route path="/:id/edit" element={<Edit />} />
       </Routes>
