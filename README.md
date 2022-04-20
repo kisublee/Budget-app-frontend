@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+### Frontend
+[Frontend Deployment](https://flamboyant-babbage-a21bc0.netlify.app/)
+### Backend
+[Backend Deployment](https://backend-budget-md.herokuapp.com/transactions)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to Bi Budget App
 
-## Available Scripts
 
-In the project directory, you can run:
+**Bi Budget App** helps people manage their finances better and in a fun way! Users can set their spending and saving goals bi-weekly and keep track of their goals!
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Donut chart is implemented to display users' transactions on the main page.
 
-### `npm test`
+- Hamburger naviation bar implemented for mobile.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Pagination implemented. Users can choose up to how many transctions that wish to see on the list page and horizontal scrollbar feature allows users to move horizontally on the list page.
 
-### `npm run build`
+- App shows how much the user spent and how much they saved and total spending. Based on users' saving goal, it displays progress such as 'excellent' and 'good'.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Users can sort their transactions by amount, category, source, and date.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Users can view each transaction in more details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- This app is mobile and desktop responsive. (Started with mobile first approach. It looks better on mobile) 
 
-### `npm run eject`
+- Confirmation dialog is implemented so when users delete their transactions, they have a chance to re-think about deleting it.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Editing is implented. Users can easily edit their transactions.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Easily create a new transcation.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- REST implemented.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- MongoDB is used for this app. Easy to keep track of data.
 
-## Learn More
+- MUI library used to make the app more UI friendly
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Moving navigation bar is implemented to maximaize the screen size of users' chosen device.  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Features in progress
 
-### Analyzing the Bundle Size
+1. Working on perfecting its responsiveness 
+2. Adding account feature
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
