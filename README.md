@@ -2,6 +2,8 @@
 [Frontend Deployment](https://flamboyant-babbage-a21bc0.netlify.app/)
 ### Backend
 [Backend Deployment](https://backend-budget-md.herokuapp.com/transactions)
+### Backend GitHub Repo
+[Backend GitHub Repo](https://github.com/kisublee/budget-app-backend)
 
 # Welcome to Bi Budget App
 
